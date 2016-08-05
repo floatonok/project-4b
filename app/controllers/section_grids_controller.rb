@@ -46,6 +46,6 @@ class SectionGridsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def section_grid_params
-      params.require(:section_grid).permit(:occupied, :home_id)
+      params.require(:section_grid).permit(:occupied, :home_id, :section_id)
     end
 end

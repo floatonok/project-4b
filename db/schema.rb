@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805060348) do
+ActiveRecord::Schema.define(version: 20160805062126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,7 +27,16 @@ ActiveRecord::Schema.define(version: 20160805060348) do
     t.integer  "home_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "section_id"
     t.index ["home_id"], name: "index_section_grids_on_home_id", using: :btree
+    t.index ["section_id"], name: "index_section_grids_on_section_id", using: :btree
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.integer  "height"
+    t.integer  "width"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,5 +49,6 @@ ActiveRecord::Schema.define(version: 20160805060348) do
   end
 
   add_foreign_key "section_grids", "homes"
+  add_foreign_key "section_grids", "sections"
   add_foreign_key "users", "homes"
 end

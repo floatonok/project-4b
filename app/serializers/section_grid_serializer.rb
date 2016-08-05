@@ -1,4 +1,5 @@
 class SectionGridSerializer < ActiveModel::Serializer
   attributes :id, :occupied
-  has_one :home
+  belongs_to :home
+  belongs_to :section
 end
