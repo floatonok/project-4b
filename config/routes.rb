@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sections
   resources :section_grids
   resources :homes
   resources :users
