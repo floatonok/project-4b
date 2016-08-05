@@ -22,7 +22,9 @@ gem 'puma', '~> 3.0'
 
 group :development, :test do
   # Use RSpec for specs
-  gem 'rspec-rails', '3.1.0'
+  # gem 'rspec-rails', '3.1.0'
+  gem 'rspec-rails'
+  # gem 'rspec-core', '~> 3.4', '>= 3.4.4'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
