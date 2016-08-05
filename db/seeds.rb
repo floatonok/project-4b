@@ -11,12 +11,12 @@
 # SectionGrid.destroy_all
 # Section.destroy_all
 
-# home_1 = Home.new
-# home_1.color = '#95AB63'
-# home_1.size = 2
-# if home_1.save
-#   puts 'Home Saved!'
-# end
+home_1 = Home.new
+home_1.color = '#95AB63'
+home_1.size = 2
+if home_1.save
+  puts 'Home Saved!'
+end
 
 # user_1 = User.new
 # user_1.name = 'Isabella'
