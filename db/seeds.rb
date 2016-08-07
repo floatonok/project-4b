@@ -8,7 +8,7 @@
 
 # User.destroy_all
 # Home.destroy_all
-# SectionGrid.destroy_all
+# Cell.destroy_all
 # Section.destroy_all
 
 home_1 = Home.new
@@ -34,25 +34,23 @@ if user_2.save
   puts 'User Saved!'
 end
 
-section_grid_1 = SectionGrid.new
-section_grid_1.occupied = true
-section_grid_1.section_id = 1
-section_grid_1.home_id = 1
-if section_grid_1.save
-  puts 'Section Grid Saved!'
-end
-
-section_grid_2 = SectionGrid.new
-section_grid_2.occupied = true
-section_grid_2.section_id = 1
-section_grid_2.home_id = 1
-if section_grid_2.save
-  puts 'Section Grid Saved!'
-end
-
-section_1 = Section.new
-section_1.height = 10
-section_1.width = 20
-if section_1.save
-  puts 'Section Saved!'
-end
+# section_1 = Section.new
+# section_1.height = 20
+# section_1.width = 10
+# if section_1.save
+#   puts 'Section Saved!'
+# end
+#
+# section_2 = Section.new
+# section_2.height = 5
+# section_2.width = 5
+# if section_2.save
+#   puts 'Section Saved!'
+# end
+#
+# section_3 = Section.new
+# section_3.height = 7
+# section_3.width = 21
+# if section_3.save
+#   puts 'Section Saved!'
+# end

@@ -1,4 +1,4 @@
 class SectionSerializer < ActiveModel::Serializer
   attributes :id, :height, :width
-  has_many :section_grids
+  has_many :cells
 end

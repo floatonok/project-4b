@@ -1,3 +1,3 @@
 class Section < ApplicationRecord
-  has_many :section_grids
+  has_many :cells
 end

@@ -29,11 +29,11 @@ class SectionsController < ApplicationController
         i +=1
       end
       array.each do |x|
-        @section_grid = SectionGrid.new({
+        @cell = Cell.new({
           occupied: false,
           section_id: @section.id
           })
-        @section_grid.save
+        @cell.save
       end
 
       render json: @section, status: :created, location: @section

@@ -10,26 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160805062126) do
+ActiveRecord::Schema.define(version: 20160807095311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cells", force: :cascade do |t|
+    t.boolean  "occupied"
+    t.integer  "home_id"
+    t.integer  "section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["home_id"], name: "index_cells_on_home_id", using: :btree
+    t.index ["section_id"], name: "index_cells_on_section_id", using: :btree
+  end
 
   create_table "homes", force: :cascade do |t|
     t.integer  "size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "color"
-  end
-
-  create_table "section_grids", force: :cascade do |t|
-    t.boolean  "occupied"
-    t.integer  "home_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "section_id"
-    t.index ["home_id"], name: "index_section_grids_on_home_id", using: :btree
-    t.index ["section_id"], name: "index_section_grids_on_section_id", using: :btree
   end
 
   create_table "sections", force: :cascade do |t|
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20160805062126) do
     t.index ["home_id"], name: "index_users_on_home_id", using: :btree
   end
 
-  add_foreign_key "section_grids", "homes"
-  add_foreign_key "section_grids", "sections"
+  add_foreign_key "cells", "homes"
+  add_foreign_key "cells", "sections"
   add_foreign_key "users", "homes"
 end

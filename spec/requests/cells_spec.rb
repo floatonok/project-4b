@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe "SectionGrids", :type => :request do
-  describe "GET /section_grids" do
+RSpec.describe "Cells", :type => :request do
+  describe "GET /cells" do
     it "works! (now write some real specs)" do
-      get section_grids_path
+      get cells_path
       expect(response).to have_http_status(200)
     end
   end
