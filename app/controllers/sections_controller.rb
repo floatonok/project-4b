@@ -18,6 +18,24 @@ class SectionsController < ApplicationController
     @section = Section.new(section_params)
 
     if @section.save
+
+      height = @section.height
+      width = @section.width
+      numOfCells = height * width
+      array = []
+      i = 0
+      while i < numOfCells
+        array.push('x')
+        i +=1
+      end
+      array.each do |x|
+        @section_grid = SectionGrid.new({
+          occupied: false,
+          section_id: @section.id
+          })
+        @section_grid.save
+      end
+
       render json: @section, status: :created, location: @section
     else
       render json: @section.errors, status: :unprocessable_entity
