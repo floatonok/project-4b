@@ -5,7 +5,7 @@ class CellsController < ApplicationController
   def index
     @cells = Cell.all
 
-    render json: @cells
+    render json: @cells.order('id asc')
   end
 
   # GET /cells/1
