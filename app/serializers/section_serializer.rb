@@ -1,6 +1,6 @@
 class SectionSerializer < ActiveModel::Serializer
   attributes :id, :height, :width
   has_many :cells, :order => "id asc"
-  has_many :homes
-  # has_many :homes, through: :cells
+  has_many :homes, through: :cells
+  # has_many :homes
 end

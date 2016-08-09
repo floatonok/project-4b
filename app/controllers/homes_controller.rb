@@ -16,7 +16,7 @@ class HomesController < ApplicationController
   # POST /homes
   def create
     @home = Home.new(home_params)
-
+    @home.size = 0
     if @home.save
       render json: @home, status: :created, location: @home
     else
@@ -27,6 +27,7 @@ class HomesController < ApplicationController
   # PATCH/PUT /homes/1
   def update
     if @home.update(home_params)
+      # @home.size = @home.cells.length
       render json: @home
     else
       render json: @home.errors, status: :unprocessable_entity

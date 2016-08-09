@@ -27,6 +27,16 @@ class CellsController < ApplicationController
   # PATCH/PUT /cells/1
   def update
     if @cell.update(cell_params)
+      # When home is added to cell, @home.size = @home.cells.length
+
+      home = @cell.home
+      if home
+        @cell.occupied = true
+        home.size = home.cells.length
+        home.save
+        @cell.save
+      end
+
       render json: @cell
     else
       render json: @cell.errors, status: :unprocessable_entity
