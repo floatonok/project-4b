@@ -16,6 +16,7 @@ class HomesController < ApplicationController
   # POST /homes
   def create
     @home = Home.new(home_params)
+    # @home = Home.new(color: params[:color], size: 0)
     @home.size = 0
     if @home.save
       render json: @home, status: :created, location: @home
@@ -46,6 +47,6 @@ class HomesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def home_params
-      params.require(:home).permit(:size, :color)
+      params.require(:home).permit(:color, :size)
     end
 end
