@@ -28,7 +28,7 @@ class CellsController < ApplicationController
   def update
     if @cell.update(cell_params)
       # When home is added to cell, @home.size = @home.cells.length
-
+      @cell.home_id = @current_user.home_id
       home = @cell.home
       if home
         @cell.occupied = true

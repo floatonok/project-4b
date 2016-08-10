@@ -19,6 +19,8 @@ class HomesController < ApplicationController
     # @home = Home.new(color: params[:color], size: 0)
     @home.size = 0
     if @home.save
+      @current_user.home = @home
+      @current_user.save
       render json: @home, status: :created, location: @home
     else
       render json: @home.errors, status: :unprocessable_entity
